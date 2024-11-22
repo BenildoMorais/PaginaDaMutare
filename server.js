@@ -18,7 +18,7 @@ app.get('/', (req, res)=> {
 })
 
 app.post('/', (req, res)=>{
-    console.log(req.body);
+    //console.log(req.body);
     //res.send('success');
 
     const transporter = nodemailer.createTransport({
@@ -37,7 +37,24 @@ app.post('/', (req, res)=>{
         text: req.body.message
     }
 
+    const mailOptionsClient = {
+        from: req.body.email,
+        to: req.body.email,
+        subject: 'Mutare Soluções',
+        text: `Saudações ${req.body.name}, recebemos o seu Email e responderemos em breve`
+    }
+
     transporter.sendMail(mailOptions, (error, info)=> {
+        if(error){
+            console.log(error);
+            res.send('error');
+        }else{
+            console.log('Email sent: ' + info.response);
+            res.send('success')
+        }
+    })
+
+    transporter.sendMail(mailOptionsClient, (error, info)=> {
         if(error){
             console.log(error);
             res.send('error');
