@@ -405,23 +405,23 @@
           </div>
 
           <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+            <form class="php-email-form" data-aos="fade-up" data-aos-delay="200">
               <div class="row gy-4">
 
                 <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Insira teu Nome" required="">
+                  <input type="text" id="name" name="name" class="form-control" placeholder="Insira teu Nome" required="">
                 </div>
 
                 <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Insira teu Email" required="">
+                  <input type="email" id="email" class="form-control" name="email" placeholder="Insira teu Email" required="">
                 </div>
 
                 <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Assunto" required="">
+                  <input type="text" class="form-control" id="subject" name="subject" placeholder="Assunto" required="">
                 </div>
 
                 <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Mensagem" required=""></textarea>
+                  <textarea class="form-control" id="message" name="message" rows="6" placeholder="Mensagem" required=""></textarea>
                 </div>
 
                 <div class="col-md-12 text-center">
@@ -429,7 +429,7 @@
                   <div class="error-message"></div>
                   <div class="sent-message">A sua mensagem foi enviada. Obrigado!</div>
 
-                  <button type="submit">Enviar Mensagem</button>
+                  <button type="submit" name="sendBtn" id="sendBtn">Enviar Mensagem</button>
                 </div>
 
               </div>
@@ -530,6 +530,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/app.js"></script>
 
 </body>
 
