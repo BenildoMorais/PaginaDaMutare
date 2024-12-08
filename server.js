@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 app.use(cors());
+require('dotenv').config()
 
 const nodemailer = require("nodemailer");
 const { text } = require('body-parser');
@@ -24,15 +25,15 @@ app.post('/', (req, res)=>{
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'moraisaugusto360@gmail.com',
-            pass: 'fobc uiwp zdua sdie'
+            user: process.env.USER_EMAIL,
+            pass: process.env.PASS_EMAIL_PASS
         }
 
     })
 
     const mailOptions = {
         from: req.body.email,
-        to: 'moraisaugusto360@gmail.com',
+        to: process.env.USER_EMAIL,
         subject: `Mensagem de ${req.body.email} Assunto: ${req.body.subject}`,
         text: req.body.message
     }
